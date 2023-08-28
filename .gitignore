@@ -1,2 +1,6 @@
 *.exe
 *.o
+*.cbp
+*.depend
+*.layout
+*.pptx
