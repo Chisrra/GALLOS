@@ -30,7 +30,7 @@ mark {background-color: rgb(129 161 193 / 0.6)};
 
 ---
 
-El ordenamiento o en ingles sorting, son algoritmos que se utilizan para organizar los elementos de una coleecion en un orden especifico.
+El ordenamiento o en ingles sorting, son algoritmos que se utilizan para organizar los elementos de una colección en un orden especifico.
 
 los algortimos mas comunes son los de la burbuja, seleccion, insercion, merge sort y quick sort.
 
@@ -84,7 +84,7 @@ Se aplica a colecciones ordenadas y divide repetidamente la busqueda a la mitad.
 
 Se compara el elemento buscado con el elemento central de la coleccion y se descarta la mitad no deseada.
 
-La complejidad temporal de la busqueda binaria es de O(log(N)), donde n es el tamano de la coleccion.
+La complejidad temporal de la busqueda binaria es de O(log(N)), donde n es el tamaño de la coleccion.
 
 ---
 
@@ -92,7 +92,7 @@ La complejidad temporal de la busqueda binaria es de O(log(N)), donde n es el ta
 
 ---
 
-es una forma organizacion de datos almacenados y elejidos dependiendo del uso y eficacia.
+Son una forma organizacion de datos almacenados y elejidos dependiendo del uso y eficacia.
 
 Los cuatro estructuras de datos que usaramos mas seguido en en la libreria std son los strings, vectores, sets y pairs.
 
@@ -105,6 +105,8 @@ Los cuatro estructuras de datos que usaramos mas seguido en en la libreria std s
 
 Standard Library es una colección de clases y funciones, que crean la base del lenguaje C++, estas se basan en la Standard Template Library (STL).
 Esta libreria simplifica el uso y manipulacion de varias estructuras de datos podientolas usar con operadores booleanos y de asignacion como si fuesen cualquier tipo de dato de C++.
+
+---
 
 librerias más usadas:
 <mark>\<iostream></mark>: Funciones de entrada y salida estándar como el std::cin y std::cout .
@@ -127,7 +129,7 @@ La complejidad de tiempo y espacio de sus funciones suele ser O(N) y O(1).
 función | Descripción
 --------|---
 string \_nombre_;                        | inicializa un string
-string\_nombre_ "\_valor_";              | inicializa un string con un valor
+string \_nombre_ = "\_valor_";              | inicializa un string con un valor
 \_nombre_.c\_str();                      | convierte el string std a string de c
 \_nombre_.lenght();                      | devuelve el tamano del string
 \_nombre_.empty();                       | comprueba si esta vacia
