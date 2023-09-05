@@ -9,15 +9,11 @@ int main()
     int n, x = 0;
 
     cin >> n;
-    char opt[n];
+    char opt[];
 
     for(int i = 0; i < n; i++)
     {
-
-        for(int j = 0; j < 3; j++) {
-            cin >> opt[j];
-        }
-
+        cin >> opt;
         switch(opt[1])
         {
             case '+':
