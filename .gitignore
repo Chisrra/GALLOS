@@ -4,3 +4,5 @@
 *.depend
 *.layout
 *.pptx
+bin/
+obj/
