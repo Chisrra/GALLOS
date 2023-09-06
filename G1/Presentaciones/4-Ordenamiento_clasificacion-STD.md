@@ -99,7 +99,7 @@ Los cuatro estructuras de datos que usaramos mas seguido en en la libreria std s
 ---
 
 
-# ¿Qué es la libreria STD de C++ y?
+# ¿Qué es la libreria STD de C++? 
 
 ---
 
