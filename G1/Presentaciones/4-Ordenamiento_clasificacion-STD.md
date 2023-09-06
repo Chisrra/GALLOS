@@ -204,6 +204,13 @@ pair <\_tipo1_,\_tipo2_> \_nombre_(\_valor1_,\_valor2_); | inicializa un pair co
 \_nombre_.second;                                        | devuelve el segundo elemento
 swap(\_pair1_,\_pair2_);                                 | intercambia sus contenidos (en si no es especifica de pair)
 
+---
+
+# Problemas de sets
+
+[236A: Boy or Girl](https://codeforces.com/problemset/problem/236/A)
+
+[469A: I Wanna Be The Guy](https://codeforces.com/problemset/problem/469/A)
 
 ---
 

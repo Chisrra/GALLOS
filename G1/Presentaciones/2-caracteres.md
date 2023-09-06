@@ -114,6 +114,13 @@ isupper(char)  |atol(string)                   |strncat(string-dest,string-orige
 islower(char)  |strtol(string,NULL,0)          |strcmp(string,string-comparar)
 tolower(char)  |<del>itoa(int,string,10)</del> |strncmp(string,string-comparar,int)
 toupper(char)  |sprintf(string,"%i",int)       |strlen(string)
+
+---
+
+# Problemas
+
+[734A: Anthon and Danik](https://codeforces.com/problemset/problem/734/A)
+
 ---
 
 # Referencias

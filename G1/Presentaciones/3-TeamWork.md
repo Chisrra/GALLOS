@@ -144,6 +144,14 @@ Cuando se haya terminado el tiempo, analizar el proceso para llegar o no al resu
 
 ---
 
+# Problemas
+
+[344A: Magnets](https://codeforces.com/problemset/problem/344/A)
+
+[732A: Buy A Shovel](https://codeforces.com/problemset/problem/732/A)
+
+---
+
 # Referencias
 https://www.indeed.com/career-advice/career-development/teamwork-success
 https://resumegenius.com/blog/resume-help/hard-skills

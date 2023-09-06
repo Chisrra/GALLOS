@@ -48,18 +48,21 @@ También existen números negativos donde el MSF dicta el signo 1 para negativo 
 
 ---
 
-hay cuatro maneras de asignar un valor binario en C++:
+Se puede trabajar los numeros enteros como binarios ,aunque si se quiere poner un numero binario directamente hay cuatro maneras distintas de asignar un valor binario en C++:
 
 - Con la notación hexadecimal "0x".
 - Con la notación octal "0".
-- usando strol() .
-- Con la función de C99 (no estándar) con la notacion "0b".
+- Con una funcion de conversion, strol(c_string,NULL,BASE)
+- Con el ISO C99 (no estándar) y la notacion "0b".
 
 ```
 int main() {
-    unsigned int a = 0xE5;  // Binary: 11100101
-    
-    
+    //229 en decimal
+    unsigned int hexa = 0xE5;
+    unsigned int octal = 0345;
+    string num = "11100101";
+    unsigned int funcion = strol(num.c_str(),null,2);
+    unsigned int binario = 0b11100101;
     return 0;
 }
 ```
@@ -71,7 +74,7 @@ int main() {
 
 ---
 
-Es ell proceso de modificación y utilización de representaciones binarias de números o cualquier otro dato se conoce como bitmasking. Usando una máscara, múltiples bits en un byte, word, etc. pueden ser estar encendidos o apagado, o también puede ser invertido de encendido a apagado en un solo bit.
+Es el proceso de modificación y utilización de representaciones binarias de números o cualquier otro dato se conoce como bitmasking. Usando una máscara, múltiples bits en un byte, word, etc. pueden ser estar encendidos o apagado, o también puede ser invertido de encendido a apagado en un solo bit.
 
 ---
 
@@ -79,17 +82,23 @@ Es ell proceso de modificación y utilización de representaciones binarias de n
 
 ---
 
-estos son operadores de manipulación de bits, muy similares a los operadores booleanos, pero no se deben confundir con los operadores logicos o relacionales. 
+Estos son operadores de manipulación de bits, muy similares a los operadores booleanos, pero no se deben confundir con los operadores logicos o relacionales. 
 
-| Bitwise   | Logico     |
-|-----------|------------|
-| a & b     | a && b     |
-| a \| b    | a \|\| b   |
-| a ^ b     | a != b     |
-| ~a        | !a         |
+| Bitwise   | <mark>Logico</mark>   | Bitwise   | <mark>Logico</mark> |
+|-----------|-----------------------|-----------|---------------------|
+| a & b     | <mark>a && b   <mark> | a ^ b     | <mark>a != b</mark> |
+| a \| b    | <mark>a \|\| b <mark> | ~a        | <mark>!a    </mark> |
+
+Ejemplos:
+```
+  11001000    11001000    11001000    11001000
+& 10111000  | 11001000  ^ 11001000  ~  
+----------  ----------  ----------  ----------
+= 10001000  = 11111000  = 01110000  = 00110111 
+```
+
 
 ---
-
 # Operadores de manipulación
 
 |Símbolo | Operador                               |
@@ -103,7 +112,7 @@ estos son operadores de manipulación de bits, muy similares a los operadores bo
 
 ---
 
-# "tabla de verdad de bits"
+# Tabla de verdad
 
 | bit a | bit b | a & b (a AND b) | a \| b (a OR b)|a ^ b (a XOR b) 
 |-------|-------|-----------------|----------------|---------------
@@ -116,26 +125,21 @@ estos son operadores de manipulación de bits, muy similares a los operadores bo
 
 # Bitshifting
 
+Estos operadores recorren la cantidad de bits dadas hacia una direccion, izquierda o derecha y dependiendo del tamano del numero binario, si es un número negativo o es mayor o igual al número total de bits este podra resultar en comportamiendo indefinido.
+
 ---
 
 # Right shift (>>)
 
-Si la variable ch contiene el patrón de bits 11100101, entonces ch >> 1 producirá el resultado 01110010, y ch >> 2 producirá 00111001.
+Este sirve como una division truncada hacia abajo (floor), siendoda el valor que se shiftea un exponente del numero 2. Ejemplo: Si la variable val contiene al numero en binario 11100101 (229), entonces val >> 1 (val / 2^1) producirá el resultado 01110010 (114) y val >> 2 (val / 2^2) producirá 00111001 (57).
 
 ```
-int main() {
-    unsigned char int = 0xE5;  // binario: 11100101
-    
-    // Right shift por 1 posición
-    ch = ch >> 1; // binario: 01110010
-    
-    cout<<"After right shift by 1: "<< ch; // Output: 72 (hexadecimal)
-    
-    // Right shift por 2 posiciones
-    ch = ch >> 2; // binario: 00111001
-    
-    cout<<"After right shift by 2: "<< ch; // Output: 39 (hexadecimal)
-    
+int main(){
+    unsigned int val = 0xE5;  // binario: 11100101
+    val = val >> 1; // binario: 0111001
+    cout<<"\nAfter right shift by 1: "<< val; // Output: 72 (hexadecimal)
+    val = val >> 2; // binario: 00111001
+    cout<<"\nAfter right shift by 2: "<< val; // Output: 39 (hexadecimal)
     return 0;
 }
 ```
@@ -144,19 +148,37 @@ int main() {
 
 # Left shift (<<)
 
+Srive como multiplicacion por 2 siendo el valor que se shiftea el exponente, Ejemplo: si la variable val contiene al numero en binario 00000111 (7), entonces val << 1 (val * 2^1) producirá el resultado 00001110 (14) y val >> 2 (val * 2^2) dara 00011100 (28).
 
+```
+int main(){
+    unsigned int val = 0b00000111;
+    val = val >> 1; // binario: 0111001
+    cout<<"\nAfter right shift by 1: "<< val; // Output: 72 (hexadecimal)
+    // Right shift por 2 posiciones
+    val = val >> 2; // binario: 00111001
+    cout<<"\nAfter right shift by 2: "<< val; // Output: 39 (hexadecimal)
+    return 0;
+}
+```
 
 ---
 
 # Operadores de asignación
 
-| Symbol | Operator                            |
-|--------|-------------------------------------|
-| &=     | bitwise AND assignment              |
-| \|=    | bitwise inclusive OR assignment     |
-| ^=     | bitwise exclusive OR assignment     |
-| <<=    | left shift assignment               |
-| >>=    | right shift assignment              |
+```
+val=11001000;
+```
+
+| Symbol | Operator                            | Ejemplo
+|--------|-------------------------------------|-------
+| &=     | bitwise AND assignment              | val &= 0b10111000;
+| \|=    | bitwise inclusive OR assignment     | val \|= 0b11001000;
+| ^=     | bitwise exclusive OR assignment     | val ^= 0b11001000;
+| =~     | bitwise NOT (unario)                | val = ~val;
+| <<=    | left shift assignment               | val <<= 1;
+| >>=    | right shift assignment              | val >>= 2;
+
 
 
 ---
@@ -171,12 +193,12 @@ int main() {
 
 # Referencias
 
-- https://yewtu.be/watch?v=qq64FrA2UXQ
-- https://www.scaler.com/topics/data-structures/bit-masking/
-- https://www.learn-c.org/en/Bitmasks
-- https://www.geeksforgeeks.org/what-is-bitmasking/
-- https://en.wikipedia.org/wiki/Mask_(computing)
-- https://en.wikipedia.org/wiki/Bitwise_operation
-- https://en.wikipedia.org/wiki/Bitwise_operations_in_C
-- https://en.wikipedia.org/wiki/Binary_number
-- https://www.includehelp.com/c/how-to-assign-binary-value-in-a-variable-directly.aspx
+https://yewtu.be/watch?v=qq64FrA2UXQ
+https://www.scaler.com/topics/data-structures/bit-masking/
+https://www.learn-c.org/en/Bitmasks
+https://www.geeksforgeeks.org/what-is-bitmasking/
+https://en.wikipedia.org/wiki/Mask_(computing)
+https://en.wikipedia.org/wiki/Bitwise_operation
+https://en.wikipedia.org/wiki/Bitwise_operations_in_C
+https://en.wikipedia.org/wiki/Binary_number
+https://www.includehelp.com/c/how-to-assign-binary-value-in-a-variable-directly.aspx
