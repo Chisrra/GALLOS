@@ -78,6 +78,19 @@ Es el proceso de modificación y utilización de representaciones binarias de n�
 
 ---
 
+# Operadores de manipulación
+
+|Símbolo | Operador                               |
+|--------|----------------------------------------|
+|   &    | bitwise AND                            |
+|   \|   | bitwise inclusive OR                   |
+|   ^    | bitwise XOR (exclusive OR)             |
+|   <<   | left shift                             |
+|   >>   | right shift                            |
+|   ~    | bitwise NOT (unario)                   |
+
+---
+
 # Bitwise operations
 
 ---
@@ -92,34 +105,21 @@ Estos son operadores de manipulación de bits, muy similares a los operadores bo
 Ejemplos:
 ```
   11001000    11001000    11001000    11001000
-& 10111000  | 11001000  ^ 11001000  ~  
+& 10111000  | 11111000  ^ 11001001 ~  
 ----------  ----------  ----------  ----------
-= 10001000  = 11111000  = 01110000  = 00110111 
+= 10001000  = 11111000  = 00000001  = 00110111 
 ```
-
-
----
-# Operadores de manipulación
-
-|Símbolo | Operador                               |
-|--------|----------------------------------------|
-|   &    | bitwise AND                            |
-|   \|   | bitwise inclusive OR                   |
-|   ^    | bitwise XOR (exclusive OR)             |
-|   <<   | left shift                             |
-|   >>   | right shift                            |
-|   ~    | bitwise NOT (unario)                   |
 
 ---
 
 # Tabla de verdad
 
-| bit a | bit b | a & b (a AND b) | a \| b (a OR b)|a ^ b (a XOR b) 
-|-------|-------|-----------------|----------------|---------------
-|   0   |   0   |       0         | 0              | 0
-|   0   |   1   |       0         | 1              | 1
-|   1   |   0   |       0         | 1              | 1
-|   1   |   1   |       1         | 1              | 0
+| bit a | bit b | a & b (a AND b) | a \| b (a OR b)|a ^ b (a XOR b) | ~a (NOT a) |
+|-------|-------|-----------------|----------------|----------------|------------|
+|   0   |   0   |       0         | 0              | 0              | 1          |
+|   0   |   1   |       0         | 1              | 1              | 1          |
+|   1   |   0   |       0         | 1              | 1              | 0          |
+|   1   |   1   |       1         | 1              | 0              | 0          |
 
 ---
 
@@ -135,11 +135,11 @@ Este sirve como una division truncada hacia abajo (floor), siendoda el valor que
 
 ```
 int main(){
-    unsigned int val = 0xE5;  // binario: 11100101
+    unsigned int val = 0b11100101;
     val = val >> 1; // binario: 0111001
-    cout<<"\nAfter right shift by 1: "<< val; // Output: 72 (hexadecimal)
+    cout<<"\nAfter right shift by 1: "<< val; 
     val = val >> 2; // binario: 00111001
-    cout<<"\nAfter right shift by 2: "<< val; // Output: 39 (hexadecimal)
+    cout<<"\nAfter right shift by 2: "<< val; 
     return 0;
 }
 ```
@@ -148,16 +148,15 @@ int main(){
 
 # Left shift (<<)
 
-Srive como multiplicacion por 2 siendo el valor que se shiftea el exponente, Ejemplo: si la variable val contiene al numero en binario 00000111 (7), entonces val << 1 (val * 2^1) producirá el resultado 00001110 (14) y val >> 2 (val * 2^2) dara 00011100 (28).
+Srive como multiplicacion por 2 siendo el valor que se shiftea el exponente, Ejemplo: si la variable val contiene al numero en binario 00000111 (7), entonces val << 1 (val * 2^1) producirá el resultado 00001110 (14) y val << 2 (val * 2^2) dara 00011100 (28).
 
 ```
 int main(){
     unsigned int val = 0b00000111;
-    val = val >> 1; // binario: 0111001
-    cout<<"\nAfter right shift by 1: "<< val; // Output: 72 (hexadecimal)
-    // Right shift por 2 posiciones
-    val = val >> 2; // binario: 00111001
-    cout<<"\nAfter right shift by 2: "<< val; // Output: 39 (hexadecimal)
+    val = val << 1; // binario: 00001110
+    cout<<"\nAfter left shift by 1: "<< val; 
+    val = val << 2; // binario: 00011100
+    cout<<"\nAfter left shift by 2: "<< val; 
     return 0;
 }
 ```
