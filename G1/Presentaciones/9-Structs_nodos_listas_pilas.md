@@ -147,12 +147,13 @@ struct Nodo{
     Nodo* siguiente;
 };
 int main(){
-    Nodo primer=new Nodo;
-    Nodo Segundo=new Nodo;
+    Nodo *primer=new Nodo;
+    Nodo *Segundo=new Nodo;
     primer->dato=1;
     primer->siguiente=segundo;
     segundo->dato=1;
     segundo->siguiente=NULL; // ó =nullptr;
+    cout<<primer->dato<<" "<<segundo->dato;
     delete primer;
     delete segundo;
 return 0;
@@ -170,17 +171,17 @@ struct Nodo{
     Nodo* siguiente;
 };
 int main(){
-    Nodo primer=new Nodo;
-    Nodo Segundo=new Nodo;
+    Nodo *primer=new Nodo;
+    Nodo *Segundo=new Nodo;
     primer->dato=1;
     primer->anterior=NULL;
     primer->siguiente=segundo;
     segundo->dato=1;
-    primer->anterior=primer;
+    segundo->anterior=primer;
     segundo->siguiente=NULL; 
+    cout<<primer->dato<<" "<<segundo->dato;
     delete primer;
     delete segundo;
-
 return 0;
 }
 ```
@@ -196,14 +197,15 @@ struct Nodo{
     Nodo* siguiente;
 };
 int main(){
-    Nodo primer=new Nodo;
-    Nodo Segundo=new Nodo;
+    Nodo* primer=new Nodo;
+    Nodo* Segundo=new Nodo;
     primer->dato=1;
     primer->anterior=segundo;
     primer->siguiente=segundo;
     segundo->dato=1;
     primer->anterior=primer;
     segundo->siguiente=primera; 
+    cout<<primer->dato<<" "<<segundo->dato;
     delete primer;
     delete segundo;
 return 0;
@@ -232,7 +234,7 @@ Funcion      | Descripcion
 pop_front()  | Elimina el primer elemento de la lista.
 pop_back()   | Elimina el último elemento de la lista.
 insert()     | Inserta antes del elemento en una posición especificada.
-tamaño()     | Retorna el número de elementos en la lista.
+size()       | Retorna el número de elementos en la lista.
 start()      | Retorna un iterator señalando el primer elemento de la lista.
 end()        | Retorna iterador señalando el elemento que sigue al último. 
 
@@ -323,7 +325,7 @@ struct Pila {
 } Pila;
 
 Pila* crearPila() {
-    Pila* nuevaPila = (Pila*)malloc(sizeof(Pila));
+    Pila* nuevaPila = new Pila;
     nuevaPila->tope = NULL;
     return nuevaPila;
 }

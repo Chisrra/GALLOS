@@ -241,6 +241,143 @@ int fibonacci(int n){                     //(2^n)
 
 ---
 
+# 1
+
+```
+string entrada;
+cin>>entrada;
+int x=5;
+if(entrada=="holi")
+    cout<<x;
+```
+
+# 2
+
+```
+int n;
+cin>>n;
+for (int i=1; i<=n; i++)
+    cout<<"hola";
+
+```
+
+---
+
+# 1 Solucion
+
+```
+string entrada;     // O(1)
+cin>>entrada;       // O(1)
+int x=5;            // O(1)
+if(entrada=="holi") // O(1)
+    cout<<x;        // O(1)
+```
+
+# 2 solucion
+
+```
+int n;                   //O(1)
+cin>>n;                  //O(1)
+for (int i=1; i<=n; i++) //O(n)
+    cout<<"hola";        //O(n)
+
+```
+
+---
+
+# 3
+
+```
+int n, c=5;
+cin>>n;
+for (int i=1; i<=n; i+=c){
+    for (int j=1; j<=n; j+=c){
+        cout<<i+j;
+    }
+}
+```
+
+# 4
+
+```
+int n;
+cin>>n;
+n=2;
+for(int i=0;i<n;i++){
+    for(int j=0;j<n;j++){
+        for(int k=0;k<n;k*=j){
+            cout<<i*j*k;
+        }
+    }
+}
+```
+
+---
+
+# 3 solucion
+```
+int n, c=5;                     //O(1)
+cin>>n;                         //O(1)
+for (int i=1; i<=n; i+=c){      //O(n)
+    for (int j=1; j<=n; j+=c){  //O(n^2)
+        cout<<i+j;              //O(n^2)
+    }
+}
+```
+
+# 4 solucion
+```
+int n;                          //O(1)
+cin>>n;                         //O(1)
+n=2;                            //O(1)
+for(int i=0;i<n;i++){           //O(1)
+    for(int j=0;j<n;j++){       //O(1)
+        for(int k=0;k<n;k*=j){  //O(1)
+            cout<<i*j*k;        //O(1)
+        }
+    }
+}
+```
+
+---
+
+# 5
+```
+int n,c=2;
+cin>>n;
+for(int i=0;i<n;i*=c){
+    cout<<i;
+}
+``` 
+
+# 6
+```
+int n,c=5,i=10;
+cin>>n;
+for(i=0;i<n;pow(i, c))
+    cout<<i;
+```
+
+---
+
+# 5 solucion
+```
+int n,c=2;             //O(1)
+cin>>n;                //O(1)
+for(int i=0;i<n;i*=c){ //O(log(n))
+    cout<<i;           //O(log(n))
+}
+``` 
+
+# 6 solucion
+```
+int n,c=5,i=10;        //O(1)
+cin>>n;                //O(1)
+for(i=0;i<n;pow(i, c)) //O(log(log(n)))
+    cout<<i;           //O(log(log(n)))
+```
+---
+
 # Referencias
 
 https://yewtu.be/watch?v=CtpvpnYNNiE
