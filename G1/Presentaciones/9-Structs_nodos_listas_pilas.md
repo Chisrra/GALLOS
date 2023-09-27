@@ -114,6 +114,7 @@ int main(){
     delete []escuela;
 return 0;
 ```
+
 ---
 
 # ¿Qué son los nodos?
@@ -122,9 +123,113 @@ return 0;
 
 ---
 
+Un nodo es una unidad básica de una estructura de datos, como los arboles y las listas. Los nodos contienen datos y también pueden vincularse con otros nodos. Estos se crean atravez de structs y pueden ser enlazados con punteros.
+
+![center opacity:.7](https://www.alphacodingskills.com/imgfiles/linked-list-add-node-at-end.PNG)
+
+---
+
 # ¿Qué son las listas?
 
 ![bg opacity:.3](https://www.w3resource.com/w3r_images/linked-list-single-in-c.png)
+
+---
+
+Las listas son estructuras en secuencia que permiten la asignación de memoria no contigua. los algoritmos de inserción e eliminación son rápidas O(1). Normalmente, cuando se habla de listas se habla de una lista doblemente ligada. A estas les podemos meter y eliminar elementos por delante y por detras, saber su longitud, darnos iteradores de posicion, etc.
+
+---
+
+# lista simplemente ligada
+
+```
+struct Nodo{
+    int dato;
+    Nodo* siguiente;
+};
+int main(){
+    Nodo primer=new Nodo;
+    Nodo Segundo=new Nodo;
+    primer->dato=1;
+    primer->siguiente=segundo;
+    segundo->dato=1;
+    segundo->siguiente=NULL; // ó =nullptr;
+    delete primer;
+    delete segundo;
+return 0;
+}
+```
+
+---
+
+# lista doblemente ligada
+
+```
+struct Nodo{
+    int dato;
+    Nodo* anterior;
+    Nodo* siguiente;
+};
+int main(){
+    Nodo primer=new Nodo;
+    Nodo Segundo=new Nodo;
+    primer->dato=1;
+    primer->anterior=NULL;
+    primer->siguiente=segundo;
+    segundo->dato=1;
+    primer->anterior=primer;
+    segundo->siguiente=NULL; 
+    delete primer;
+    delete segundo;
+
+return 0;
+}
+```
+
+---
+
+# lista circular
+
+```
+struct Nodo{
+    int dato;
+    Nodo* anterior;
+    Nodo* siguiente;
+};
+int main(){
+    Nodo primer=new Nodo;
+    Nodo Segundo=new Nodo;
+    primer->dato=1;
+    primer->anterior=segundo;
+    primer->siguiente=segundo;
+    segundo->dato=1;
+    primer->anterior=primer;
+    segundo->siguiente=primera; 
+    delete primer;
+    delete segundo;
+return 0;
+}
+```
+
+---
+
+# Funciones de listas STD
+
+---
+
+Implentar manualmente las funciones de listas es un trabajo tedioso y complejo por lo que el uso de listas STD incluidas en la libreria \<list> nos facilitaran la vida.
+
+Funcion      | Descripcion
+-------------|--------------------------------------------------------------------------------------
+front()      | Retorna el valor del primer elemento en la lista.
+back()       | Retorna el valor del último elemento en la lista.
+push_front() | Añade un nuevo elemento al comienzo de la lista.
+push_back()  | Añade un nuevo elemento al final de la lista.
+pop_front()  | Elimina el primer elemento de la lista, y reduce el tamaño de la lista por 1.
+pop_back()   | Elimina el último elemento de la lista, y reduce el tamaño de la lista por 1.
+insert()     | Inserta nuevos elementos en la lista antes del elemento en una posición especificada.
+tamaño()     | Retorna el número de elementos en la lista.
+start()      | Retorna un iterator señalando el primer elemento de la lista.
+end()        | Retorna iterador señalando el último elemento teórico que sigue el último elemento. 
 
 ---
 
@@ -139,6 +244,7 @@ return 0;
 
 https://www.geeksforgeeks.org/structures-in-cpp/
 https://www.w3schools.com/cpp/cpp_structs.asp
+https://en.wikipedia.org/wiki/Node_(computer_science)
 https://www.geeksforgeeks.org/list-cpp-stl/
 https://www.geeksforgeeks.org/stack-in-cpp-stl/
 https://www.geeksforgeeks.org/introduction-to-stack-data-structure-and-algorithm-tutorials/
