@@ -224,21 +224,146 @@ front()      | Retorna el valor del primer elemento en la lista.
 back()       | Retorna el valor del último elemento en la lista.
 push_front() | Añade un nuevo elemento al comienzo de la lista.
 push_back()  | Añade un nuevo elemento al final de la lista.
-pop_front()  | Elimina el primer elemento de la lista, y reduce el tamaño de la lista por 1.
-pop_back()   | Elimina el último elemento de la lista, y reduce el tamaño de la lista por 1.
-insert()     | Inserta nuevos elementos en la lista antes del elemento en una posición especificada.
+
+---
+
+Funcion      | Descripcion
+-------------|--------------------------------------------------------------------------------------
+pop_front()  | Elimina el primer elemento de la lista.
+pop_back()   | Elimina el último elemento de la lista.
+insert()     | Inserta antes del elemento en una posición especificada.
 tamaño()     | Retorna el número de elementos en la lista.
 start()      | Retorna un iterator señalando el primer elemento de la lista.
-end()        | Retorna iterador señalando el último elemento teórico que sigue el último elemento. 
+end()        | Retorna iterador señalando el elemento que sigue al último. 
+
+---
+
+```
+void showlist(list<int> g){
+    list<int>::iterator it;
+    for (it = g.begin(); it != g.end(); ++it)
+        cout << '\t' << *it;
+    cout<<endl;
+}
+ 
+int main(){
+    list<int> gqlist1, gqlist2;
+    for (int i = 0; i < 10; ++i) {
+        gqlist1.push_back(i * 2);
+        gqlist2.push_front(i * 3);
+    }
+    cout << "\nList 1 (gqlist1) is : ";
+    showlist(gqlist1);
+    cout << "\nList 2 (gqlist2) is : ";
+    showlist(gqlist2);
+```
+---
+
+```
+    cout << "\ngqlist1.front() : " << gqlist1.front();
+    cout << "\ngqlist1.back() : " << gqlist1.back();
+    cout << "\ngqlist1.pop_front() : ";
+    gqlist1.pop_front();
+    showlist(gqlist1);
+    cout << "\ngqlist2.pop_back() : ";
+    gqlist2.pop_back();
+    showlist(gqlist2);
+    cout << "\ngqlist1.reverse() : ";
+    gqlist1.reverse();
+    showlist(gqlist1);
+    cout << "\ngqlist2.sort(): ";
+    gqlist2.sort();
+    showlist(gqlist2);
+return 0;
+}
+```
+---
+
+# output
+
+```
+List 1 (gqlist1) is :   0    2    4    6    8    10    12    14    16    18
+
+List 2 (gqlist2) is :   27    24    21    18    15    12    9    6    3    0
+
+gqlist1.front() :       0
+gqlist1.back() :        18
+gqlist1.pop_front() :   2    4    6    8    10    12    14    16    18
+
+gqlist2.pop_back() :    27    24    21    18    15    12    9    6    3
+
+gqlist1.reverse() :     18    16    14    12    10    8    6    4    2
+
+gqlist2.sort():         3    6    9    12    15    18    21    24    27
+```
 
 ---
 
 # ¿Qué son las pilas?
 ![bg h:750 opacity:.1](https://mlstaticquic-a.akamaihd.net/pilas-duracell-alcalinas-aa-pack-x-6-unidades-super-oferta-D_NQ_NP_603355-MLU31379461783_072019-F.jpg)
 
+---
+
+Las pilas o en Ingles Stack es una estructura lineal de tipo LIFO (Last Input First Output), esto significa que la inserción de un nuevo elemento y la eliminación de un elemento existente tiene lugar en el mismo extremo representado como la parte superior de la pila. Donde sus funciones basicas de push,pop,isEmpty y size tienen una complejidad lineal O(1).
+
+![h:450 center opacity:.6](https://media.geeksforgeeks.org/wp-content/uploads/20220714004311/Stack-660x566.png)
 
 ---
 
+# Estructura de stack
+
+```
+struct Nodo {
+    int dato;
+    struct Nodo* siguiente;
+} Nodo;
+
+struct Pila {
+    Nodo* tope;
+} Pila;
+
+Pila* crearPila() {
+    Pila* nuevaPila = (Pila*)malloc(sizeof(Pila));
+    nuevaPila->tope = NULL;
+    return nuevaPila;
+}
+```
+
+---
+
+# Funciones de Stacks STD 
+
+Funcion | Descripcion
+--------|---------------------------------------------------------
+empty() | Retorna si la pila está vacía
+size()  | Retorna el tamaño de la pila
+top()   | Retorna una referencia al elemento más alto de la pila
+push()  | Añade el elemento en la parte superior de la pila
+pop()   | Elimina el elemento introducido más reciente de la pila
+
+---
+
+```
+int main() {
+    stack<int> pila;
+    pila.push(21);
+    pila.push(22);
+    pila.push(24);
+    pila.push(25);
+    int num=0;
+    pila.push(num);
+    pila.pop();
+    pila.pop();
+    pila.pop();
+    while (!pila.empty()) {
+        cout << pila.top() <<" ";
+        pila.pop();
+    }
+return 0;
+}
+```
+
+---
 
 # Referencias
 
@@ -246,7 +371,8 @@ https://www.geeksforgeeks.org/structures-in-cpp/
 https://www.w3schools.com/cpp/cpp_structs.asp
 https://en.wikipedia.org/wiki/Node_(computer_science)
 https://www.geeksforgeeks.org/list-cpp-stl/
-https://www.geeksforgeeks.org/stack-in-cpp-stl/
-https://www.geeksforgeeks.org/introduction-to-stack-data-structure-and-algorithm-tutorials/
 https://www.geeksforgeeks.org/list-of-stacks-in-c-stl/
 https://www.geeksforgeeks.org/data-structures/linked-list/
+https://www.geeksforgeeks.org/stack-in-cpp-stl/
+https://www.geeksforgeeks.org/introduction-to-stack-data-structure-and-algorithm-tutorials/
+
