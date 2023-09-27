@@ -288,6 +288,15 @@ int main() {
 ```
 ---
 
+# Problemas
+
+Resolver los siguientes problemas usando memoria dinamica, punteros y logica de punteros para la impresion de datos.
+
+[344A: Magnets](https://codeforces.com/problemset/problem/344/A)
+
+[263A: Beutiful Matrix ](https://codeforces.com/problemset/problem/263/A)
+
+---
 
 # Referencias
 

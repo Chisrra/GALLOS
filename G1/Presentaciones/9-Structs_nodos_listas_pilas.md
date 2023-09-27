@@ -151,7 +151,7 @@ int main(){
     Nodo *Segundo=new Nodo;
     primer->dato=1;
     primer->siguiente=segundo;
-    segundo->dato=1;
+    segundo->dato=2;
     segundo->siguiente=NULL; // ó =nullptr;
     cout<<primer->dato<<" "<<segundo->dato;
     delete primer;
@@ -176,7 +176,7 @@ int main(){
     primer->dato=1;
     primer->anterior=NULL;
     primer->siguiente=segundo;
-    segundo->dato=1;
+    segundo->dato=2;
     segundo->anterior=primer;
     segundo->siguiente=NULL; 
     cout<<primer->dato<<" "<<segundo->dato;
@@ -202,7 +202,7 @@ int main(){
     primer->dato=1;
     primer->anterior=segundo;
     primer->siguiente=segundo;
-    segundo->dato=1;
+    segundo->dato=2;
     primer->anterior=primer;
     segundo->siguiente=primera; 
     cout<<primer->dato<<" "<<segundo->dato;
@@ -364,6 +364,18 @@ int main() {
 return 0;
 }
 ```
+---
+
+# Problema en clase
+
+Utilizando una lista ligada simple, realizar una lista con "n" datos.
+Esto se resuelve como si se declara un vector con memoria dinamico.
+
+---
+
+# Problema
+
+[756C: Nikita and stack](https://codeforces.com/problemset/probelm/756/C)
 
 ---
 
