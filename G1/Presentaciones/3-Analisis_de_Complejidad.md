@@ -98,7 +98,7 @@ Para determinar la complejidad se suman las complejidades por cada linea o funci
 
 <mark>Ejemplo de complejidad O(1):</mark>
 
-```
+```cpp
 int n=1000;         //es O(1), ya que n ya esta declarada
 if(n%2==0)          //O(1)
     cout<<"par";    //O(1)
@@ -111,7 +111,7 @@ Complejidad = 1 + 1 + 1 + 1 + 1 = O(5) = O(1);
 
 <mark>Ejemplo de complejidad O(n):</mark>
 
-```
+```cpp
 int n=0;                     // O(1)
 cin>>n;                      // O(1)
 for(int i=0;i<n;i++){        //es O(n) ya que n es el limite
@@ -127,7 +127,7 @@ Complejidad = 1 + 1 + n + n + n + n + n = O(2 + 5n) = O(n);
 
 <mark>Otro ejemplo de complejidad O(n):</mark>
 
-```
+```cpp
 int n=0, j=0;                          //O(1)
 for(int i=0;i<n;i++){                  //O(n)
     if(i%2==0)                         //O(n)
@@ -149,7 +149,7 @@ Complejidad = 1 + n + n + ... + n = O(1+ 11n) = O(n)
 
 <mark>Ejemplo de complejidad O(log(n)):</mark>
 
-```
+```cpp
 int n=0;                      //O(1)
 cin>>n;                       //O(1)
 for(int i=0;i<n;i*=2){        //O(log (n)) ya incrementa con multiplicaciones en lugar de sumas
@@ -165,7 +165,7 @@ Complejidad = 1 + 1 + log(n) + log(n) + log(n) + log(n) + log(n) = O(2 + 6log(n)
 
 <mark>Ejemplo de complejidad O(n^2):</mark>
 
-```
+```cpp
 int n=0;                  //O(1)
 cin>>n;                   //O(1)
 for(int i=0;i<n;i++){     //O(n)
@@ -180,7 +180,7 @@ Complejidad = 1 + 1 + n + n * n + n^2 = O(2 + n + 2n^2) = O(n^2)
 
 <mark>Ejemplo de complejidad O(n^k):</mark>
 
-```
+```cpp
 int n=0;                                                                //O(1)
 cin>>n;                                                                 //O(1)
 for(int i=0;i<n;i++){                                                   //O(n)
@@ -201,7 +201,7 @@ Complejidad = 1 + 1 + n + n * n + n^3 ... + n^k = O(2 + n + n^2 + ... n^k) = O(n
 ---
 <mark>Ejemplo de complejidad O(n(log(n))):</mark>
 
-```
+```cpp
 int n=0;                           //O(1)
 cin>>n;                            //O(1)
 for(int j=0;j<n;j++){              //O(n)
@@ -224,7 +224,7 @@ Muchos algoritmos recursivos suelen ser de complejidad O(k^n), siendo k la canti
 
 <mark>Ejemplo:</mark>
 
-```
+```cpp
 int fibonacci(int n){                     //(2^n)
     if(n<=1)                              //(2^n)
         return 1;                         //(2^n)
@@ -243,7 +243,7 @@ int fibonacci(int n){                     //(2^n)
 
 # 1
 
-```
+```cpp
 string entrada;
 cin>>entrada;
 int x=5;
@@ -253,7 +253,7 @@ if(entrada=="holi")
 
 # 2
 
-```
+```cpp
 int n;
 cin>>n;
 for (int i=1; i<=n; i++)
@@ -265,7 +265,7 @@ for (int i=1; i<=n; i++)
 
 # 1 Solucion
 
-```
+```cpp
 string entrada;     // O(1)
 cin>>entrada;       // O(1)
 int x=5;            // O(1)
@@ -275,7 +275,7 @@ if(entrada=="holi") // O(1)
 
 # 2 solucion
 
-```
+```cpp
 int n;                   //O(1)
 cin>>n;                  //O(1)
 for (int i=1; i<=n; i++) //O(n)
@@ -287,7 +287,7 @@ for (int i=1; i<=n; i++) //O(n)
 
 # 3
 
-```
+```cpp
 int n, c=5;
 cin>>n;
 for (int i=1; i<=n; i+=c){
@@ -299,7 +299,7 @@ for (int i=1; i<=n; i+=c){
 
 # 4
 
-```
+```cpp
 int n;
 cin>>n;
 n=2;
@@ -315,7 +315,7 @@ for(int i=0;i<n;i++){
 ---
 
 # 3 solucion
-```
+```cpp
 int n, c=5;                     //O(1)
 cin>>n;                         //O(1)
 for (int i=1; i<=n; i+=c){      //O(n)
@@ -326,7 +326,7 @@ for (int i=1; i<=n; i+=c){      //O(n)
 ```
 
 # 4 solucion
-```
+```cpp
 int n;                          //O(1)
 cin>>n;                         //O(1)
 n=2;                            //O(1)
@@ -342,7 +342,7 @@ for(int i=0;i<n;i++){           //O(1)
 ---
 
 # 5
-```
+```cpp
 int n,c=2;
 cin>>n;
 for(int i=0;i<n;i*=c){
@@ -351,7 +351,7 @@ for(int i=0;i<n;i*=c){
 ``` 
 
 # 6
-```
+```cpp
 int n,c=5,i=10;
 cin>>n;
 for(i=0;i<n;pow(i, c))
@@ -361,7 +361,7 @@ for(i=0;i<n;pow(i, c))
 ---
 
 # 5 solucion
-```
+```cpp
 int n,c=2;             //O(1)
 cin>>n;                //O(1)
 for(int i=0;i<n;i*=c){ //O(log(n))
@@ -370,7 +370,7 @@ for(int i=0;i<n;i*=c){ //O(log(n))
 ``` 
 
 # 6 solucion
-```
+```cpp
 int n,c=5,i=10;        //O(1)
 cin>>n;                //O(1)
 for(i=0;i<n;pow(i, c)) //O(log(log(n)))

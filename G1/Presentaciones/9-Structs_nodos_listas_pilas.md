@@ -34,7 +34,7 @@ mark {background-color: rgb(129 161 193 / 0.6)};
 
 Son tipos de datos definidos por el usuario que se utilizan para almacenar o agrupar diferentes tipos de datos ordenados. Estos se declaran fuera del main y se pueden asignar valores a las variables del struct desde C++11, pero no se recomienda; las variables creadas a partir de un struct se pueden acceder a travez de punto "." y si se trabaja con punteros de estructuras con el operador flecha "->".
 
-```
+```cpp
 struct identificacion{
     string nombre; 
     int celular; 
@@ -55,7 +55,7 @@ return 0;
 
 # structs anidados
 
-```
+```cpp
 struct carro {
     struct m {
        int modelo;
@@ -81,7 +81,7 @@ return 0;
 # punteros de structs
 
 
-```
+```cpp
 struct Sptr {
     int x, y;
 };
@@ -100,7 +100,7 @@ return 0;
 
 # structs con memoria dinamica 
 
-```
+```cpp
 struct id{
     string nombre; 
 };
@@ -141,14 +141,14 @@ Las listas son estructuras en secuencia que permiten la asignación de memoria n
 
 # lista simplemente ligada
 
-```
+```cpp
 struct Nodo{
     int dato;
     Nodo* siguiente;
 };
 int main(){
-    Nodo *primer=new Nodo;
-    Nodo *Segundo=new Nodo;
+    Nodo* primer=new Nodo;
+    Nodo* Segundo=new Nodo;
     primer->dato=1;
     primer->siguiente=segundo;
     segundo->dato=2;
@@ -162,17 +162,47 @@ return 0;
 
 ---
 
-# lista doblemente ligada
+# lista simplemente ligada y dinamica
+
+```cpp
+int main() {
+    Node* head = nullptr;
+    for (int i=0;i<5;i++) {
+        Node* newNode=new Node;
+        newNode->data=i;
+        newNode->next=head; 
+        head=newNode;
+    }
+    Node* actual= head;
+    cout<<"lista ligada: ";
+    while (current != nullptr) {
+        cout<<"["<< actual->data <<"]->";
+        actual= actual->next;
+    }
+    actual=head;
+    while (actual!= nullptr) {
+        Node* temp = actual;
+        actual = actual->next;
+        delete temp;
+    }
+return 0;
+}
 
 ```
+
+---
+
+# lista doblemente ligada
+
+```cpp
 struct Nodo{
     int dato;
     Nodo* anterior;
     Nodo* siguiente;
 };
 int main(){
-    Nodo *primer=new Nodo;
-    Nodo *Segundo=new Nodo;
+    Nodo* primer=new Nodo;
+    Nodo* Segundo=new Nodo;
     primer->dato=1;
     primer->anterior=NULL;
     primer->siguiente=segundo;
@@ -190,7 +220,7 @@ return 0;
 
 # lista circular
 
-```
+```cpp
 struct Nodo{
     int dato;
     Nodo* anterior;
@@ -203,8 +233,8 @@ int main(){
     primer->anterior=segundo;
     primer->siguiente=segundo;
     segundo->dato=2;
-    primer->anterior=primer;
-    segundo->siguiente=primera; 
+    segundo->anterior=primer;
+    segundo->siguiente=primer; 
     cout<<primer->dato<<" "<<segundo->dato;
     delete primer;
     delete segundo;
@@ -240,7 +270,7 @@ end()        | Retorna iterador señalando el elemento que sigue al último.
 
 ---
 
-```
+```cpp
 void showlist(list<int> g){
     list<int>::iterator it;
     for (it = g.begin(); it != g.end(); ++it)
@@ -261,7 +291,7 @@ int main(){
 ```
 ---
 
-```
+```cpp
     cout << "\ngqlist1.front() : " << gqlist1.front();
     cout << "\ngqlist1.back() : " << gqlist1.back();
     cout << "\ngqlist1.pop_front() : ";
@@ -314,7 +344,7 @@ Las pilas o en Ingles Stack es una estructura lineal de tipo LIFO (Last Input Fi
 
 # Estructura de stack
 
-```
+```cpp
 struct Nodo {
     int dato;
     struct Nodo* siguiente;
@@ -345,7 +375,7 @@ pop()   | Elimina el elemento introducido más reciente de la pila
 
 ---
 
-```
+```cpp
 int main() {
     stack<int> pila;
     pila.push(21);

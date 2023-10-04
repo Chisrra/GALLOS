@@ -68,7 +68,7 @@ clear()          | Elimina todos los elementos del mapa.
 
 # Ejemplo
 
-```
+```cpp
 int main(){
 map<string, int> mapa;
 
@@ -144,7 +144,7 @@ erase()        | Borrar elementos en el contenedor en el contenedor unordered_ma
 
 # Ejemplo
 
-```
+```cpp
 int main(){
   unordered_map<string, double> umap = {  
   {"One", 1},
@@ -163,7 +163,7 @@ int main(){
   
 ---
 
-```
+```cpp
   string key = "PI";
   
   if (umap.find(key) == umap.end())
@@ -193,7 +193,7 @@ int main(){
 
 # Output
 
-```
+```cpp
 Found PI
 
 lambda not found
@@ -243,7 +243,7 @@ La complejidad de las operaciones de set es O(log n).           | La complejidad
 
 # Ejemplo
 
-```
+```cpp
 int main(){
 	unordered_set<string> stringSet;
 

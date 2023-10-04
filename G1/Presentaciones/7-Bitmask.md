@@ -48,14 +48,14 @@ También existen números negativos donde el MSF dicta el signo 1 para negativo 
 
 ---
 
-Se puede trabajar los numeros enteros como binarios ,aunque si se quiere poner un numero binario directamente hay cuatro maneras distintas de asignar un valor binario en C++:
+C++ trabaja los numeros enteros como binarios, aunque si se quiere poner un numero binario directamente hay cuatro maneras distintas de asignar un valor binario:
 
 - Con la notación hexadecimal "0x".
 - Con la notación octal "0".
 - Con una funcion de conversion, strol(c_string,NULL,BASE)
 - Con el ISO C99 (no estándar) y la notacion "0b".
 
-```
+```cpp
 int main() {
     //229 en decimal
     unsigned int hexa = 0xE5;
@@ -133,7 +133,7 @@ Estos operadores recorren la cantidad de bits dadas hacia una direccion, izquier
 
 Este sirve como una division truncada hacia abajo (floor), siendoda el valor que se shiftea un exponente del numero 2. Ejemplo: Si la variable val contiene al numero en binario 11100101 (229), entonces val >> 1 (val / 2^1) producirá el resultado 01110010 (114) y val >> 2 (val / 2^2) producirá 00111001 (57).
 
-```
+```cpp
 int main(){
     unsigned int val = 0b11100101;
     val = val >> 1; // binario: 0111001
@@ -150,7 +150,7 @@ int main(){
 
 Srive como multiplicacion por 2 siendo el valor que se shiftea el exponente, Ejemplo: si la variable val contiene al numero en binario 00000111 (7), entonces val << 1 (val * 2^1) producirá el resultado 00001110 (14) y val << 2 (val * 2^2) dara 00011100 (28).
 
-```
+```cpp
 int main(){
     unsigned int val = 0b00000111;
     val = val << 1; // binario: 00001110

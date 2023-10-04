@@ -41,7 +41,7 @@ Este se declara con el operador "*", y se le asignan direcciones de memoria con 
 
 # Ejemplo:
 
-```
+```cpp
 int main(){ 
     int var = 20;
     int* ptr; //ó int *ptr=NULL;
@@ -63,14 +63,14 @@ int main(){
 ---
 
 Con punteros
-```
+```cpp
 void squarePtr(int* n){
     *n *= *n;
 }
 ```
 
 Con Referencias
-```
+```cpp
 void squareRef(int& n){
     n *= n;
 }
@@ -84,7 +84,7 @@ void squareRef(int& n){
 
 los vectores apuntan a una dirección de memoria que es el inicio de este.
 
-```
+```cpp
 int main(){
     int vec[3] = { 10, 20, 30 };
     int* ptr;
@@ -106,7 +106,7 @@ return 0;
 Las matrices no son más que vectores donde cada valor indica la dirección de memoria de otro vector.
 
 
-```
+```cpp
 int main(){
     const int REN=3, COL=3;
     int mat[REN][COL]={{ 10, 20, 30 },
@@ -131,7 +131,7 @@ return 0;
 Es la cantidad de memoria que se va usar por tipo de datos y su longitud se define en tiempo de ejecución.
 
 
-```
+```cpp
 int main(){
     int n; cin>>n;
     int* vec = new int[n]; 
@@ -149,7 +149,7 @@ return 0;
 
 # Funciones de tipo puntero
 
-```
+```cpp
 int *crearVec(int tam){
     int* aux = new int[n]; 
     for(int i=0;i<tam;i++){
@@ -174,7 +174,8 @@ return 0;
 # Matrices con memoria dinamica
 
 ---
-```
+
+```cpp
 int main() {
     int REN,COL; cin>>REN>>COL;
     int** mat = new int*[REN];
@@ -205,7 +206,7 @@ int main() {
 
 ---
 
-```
+```cpp
 int main() {
     int REN, COL; cin>>REN>>COL;
     vector <vector<int>> mat (REN,vector<int>(COL));
@@ -234,7 +235,7 @@ int main() {
 Los iteradores son un objeto de c++ que generalizan punteros de manera que permite acceder y trabajar con diferentes estructuras de datos y rangos de estos, hay cinco principales tipos de iteradores: Forward,Bidirectional,Output,Input y Random access. Los primeros dos se usan como una alternativa a los indices de los ciclos for.
 
 Ejemplo de un ciclo for regular:
-```
+```cpp
 int main() {
     vector<int> numeros = {1, 2, 3, 4, 5};
     for(size_t i=0; i<numeros.size(); i++){
@@ -246,9 +247,9 @@ int main() {
 
 ---
 
-# Iteradores de rango (Forward)
+# Iterador implicito de rango (Forward)
 
-```
+```cpp
 int main() {
     vector<int> numeros = {1, 2, 3, 4, 5};
     for(int numero : numeros){// usando rangos de iteradores
@@ -262,7 +263,7 @@ int main() {
 
 # Iteradores explicitos de vectores STD (Bidirectional)
 
-```
+```cpp
 int main() {
     vector<int> numeros = {1, 2, 3, 4, 5};
     for(vector<int>::iterator it=numeros.begin(); it!=numeros.end(); it++){
@@ -277,7 +278,7 @@ int main() {
 
 #  Iterador de tipo automatico (Forward)
 
-```
+```cpp
 int main() {
     vector<int> numeros = {1, 2, 3, 4, 5};
     for(auto it=numeros.begin(); it!=numeros.end(); it++){
