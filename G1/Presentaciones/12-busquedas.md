@@ -31,12 +31,24 @@ mark {background-color: rgb(129 161 193 / 0.6)};
 
 Supongamos que el artículo está en un array en orden aleatorio y tenemos que encontrar un elemento. Entonces la única manera de buscar un elemento objetivo es, para empezar, la primera posición y compararlo con el objetivo. Si el artículo está en el mismo, devolveremos la posición del artículo actual. De lo contrario, nos moveremos a la siguiente posición. Si llegamos a la última posición de un array y todavía no podemos encontrar el objetivo, regresamos -1 de que no se encontro.
 
+---
+
 ```cpp
 int search(int array[], int n, int x){
 	for (int i = 0; i < n; i++)
 		if (array[i] == x)
 			return i;
 	return -1;
+}
+```
+
+```cpp
+int search(const std::vector<int>& vec, int x) {
+    auto it = std::find(vec.begin(), vec.end(), x);
+    if (it != vec.end()) {
+        return std::distance(vec.begin(), it);
+    }
+    return -1;
 }
 ```
 
@@ -98,12 +110,33 @@ int binarySearch(int array[], int x, int low, int high){
 }
 
 ```
+
+---
+
+```cpp
+int binarySearch(std::vector<int>& vec,int x){
+    int low = 0;
+    int high = vec.size() - 1;
+    
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+        if (vec[mid] == x)
+            return mid;
+        if (vec[mid] < x)
+            low = mid + 1;
+        else
+            high = mid - 1;
+    }
+return -1;
+}
+```
+
 ---
 
 # Implementacion Recursiva
 
 ```cpp
-int binarySearch(int array[], int x, int low, int high){
+int binarySearch(int array[],int x,int low,int high){
     if (high >= low) {
         int mid = low + (high - low) / 2; 
         if (array[mid] == x) 
@@ -114,6 +147,23 @@ int binarySearch(int array[], int x, int low, int high){
     }
 return -1;
 }
+```
+
+---
+
+```cpp
+int binarySearch(std::vector<int>& vec,int x,int low,int high){
+    if (high >= low) {
+        int mid = low + (high - low) / 2;
+        if (vec[mid] == x)
+            return mid;
+        if (vec[mid] > x)
+            return binarySearch(vec, x, low, mid - 1);
+        return binarySearch(vec, x, mid + 1, high);
+    }
+return -1;
+}
+
 ```
 
 ---
