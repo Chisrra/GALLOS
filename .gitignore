@@ -6,3 +6,4 @@
 *.pptx
 bin/
 obj/
+.vscode/
