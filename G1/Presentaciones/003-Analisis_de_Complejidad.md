@@ -300,16 +300,12 @@ for (int i=1; i<=n; i+=c){
 # 4
 
 ```cpp
-int n;
-cin>>n;
+int n;in>>n;
 n=2;
 for(int i=0;i<n;i++){
     for(int j=0;j<n;j++){
         for(int k=0;k<n;k*=j){
-            cout<<i*j*k;
-        }
-    }
-}
+            cout<<i*j*k; }  }  }
 ```
 
 ---
@@ -333,10 +329,7 @@ n=2;                            //O(1)
 for(int i=0;i<n;i++){           //O(1)
     for(int j=0;j<n;j++){       //O(1)
         for(int k=0;k<n;k*=j){  //O(1)
-            cout<<i*j*k;        //O(1)
-        }
-    }
-}
+            cout<<i*j*k; }  }  }//O(1)
 ```
 
 ---
@@ -376,6 +369,56 @@ cin>>n;                //O(1)
 for(i=0;i<n;pow(i, c)) //O(log(log(n)))
     cout<<i;           //O(log(log(n)))
 ```
+---
+
+# Bonus
+
+```cpp
+/*Computer Game*/
+    int t=0,n=0;//t de 'test cases'
+    string uno,dos;
+    bool cond;
+    cin>>t;
+    for(int i=0;i<t;i++){
+        cond=true;
+        cin>>n>>uno>>dos;
+            for(size_t  k=0;k<n;k++){
+                if(uno[k]=='1' \
+                && dos[k]=='1'){
+                    cond=false;
+                    break;
+                }
+            }//n
+            if(cond) cout<<"YES\n";
+            else     cout<<"NO\n";
+    }//t
+```
+
+---
+
+# Bonus Solucion
+
+```cpp
+/*Computer Game*/
+    int t=0,n=0;//t de 'test cases' //O(1)      
+    string uno,dos;                 //O(1)
+    bool cond;                      //O(1)
+    cin>>t;                         //O(1)
+    for(int i=0;i<t;i++){           //O(t)=O(1)
+        cond=true;                  //O(t)=O(1)
+        cin>>n>>uno>>dos;           //O(t)=O(1)
+            for(size_t k=0;k<n;k++){   //O(t)=O(1)
+                if(uno[k]=='1' \    //O(n)
+                && dos[k]=='1'){    //O(n)
+                    cond=false;     //O(n) 
+                    break;          //O(n)
+                }                   
+            }//n
+            if(cond) cout<<"YES\n"; //O(t)=O(1)
+            else     cout<<"NO\n";  //O(t)=O(1)
+    }//t
+```
+
 ---
 
 # Referencias
