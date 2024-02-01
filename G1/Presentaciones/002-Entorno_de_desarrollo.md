@@ -39,7 +39,7 @@ En nuestro caso es donde correremos el compilador y ejecutaremos nuestros algort
 <mark>MSYS2:</mark>es una coleccion de herramientas y librerias para Windows.
 <mark>WSL:</mark> es un ambiente completo de compatibilidad de linux para  Windows.
 <mark>Windows terminal:</mark> es una terminal con pestañas para Windows.
-<mark>*Alacritty:</mark>es una terminal protable y configurable que usa acelaracion de hardware. 
+<mark>Alacritty:</mark> es una terminal protable y configurable que usa acelaracion de hardware. 
 <mark>Termux:</mark> es una terminal con un ambiente de linux sin root para Android.
 <mark>ISH:</mark> es un emulador del sistema operativo alpine linux para dispositivos iOS.
 
@@ -54,7 +54,7 @@ Un gestor de paquetes es una colección de herramientas de software que automati
 
 ---
 
-<mark>Windows:</mark> [*scoop](https://scoop.sh/), [winget](https://winget.run/), [MSYS2 (pacman)](https://packages.msys2.org/queue).
+<mark>Windows:</mark> [scoop](https://scoop.sh/), [winget](https://winget.run/), [MSYS2 (pacman)](https://packages.msys2.org/queue).
 <mark>MacOSX:</mark> [homebrew](https://brew.sh/).
 <mark>Linux:</mark> apt, pacman, etc.
 <mark>iOS:</mark> apk (ish).
@@ -69,10 +69,10 @@ Un gestor de paquetes es una colección de herramientas de software que automati
 
 un compilador es un programa que traduce código de un lenguaje de programación (C++) a lenguaje de bajo nivel (código máquina) para poder ejecutarse.
 
-<mark>g++:</mark> es el compilador de c++ del proyecto GNU, este es de codigo abierto y es portable, por lo que es el que usaremos en el curso.
-Para windows hay dos opciones principales, MIngw64 (con MSYS2,scoop,etc.) o g++ bajo linux con WSL, los nombres que suele tener son: gcc, build-base ó build-essential.
+<mark>g++:</mark> es el compilador de c++ del proyecto GNU, este es de codigo abierto y es portable y ampliamente conocido, por lo que es el que usaremos en el curso.
+Para windows hay dos opciones principales, MIngw64 (con MSYS2,scoop,etc.) o g++ bajo linux con WSL, los nombres que suele tener son: gcc, g++, build-base, build-essential ó base-devel.
 
-<mark>Clang/LLVM:</mark> es un compilador de codigo abierto, altamente optimizado, dice ser compatible con MSV y gcc aunque este tiene toda una infraestructura distinta.
+<mark>Clang/LLVM:</mark> Es compilador por defecto en MacOS, es de codigo abierto, altamente optimizado, dice ser compatible con MSV y gcc aunque este tiene toda una infraestructura distinta.
 
 ---
 
@@ -94,34 +94,33 @@ Integrated development environment o en español Entorno de desarrollo integrado
 
 # <mark>Code::Blocks</mark> ![w:70](./img/codeblocks.png)
 
-Es un IDE de codigo abierto, con extensibilidad de plugins, la ventaja de este es que ya tiene funciones tales como:
+Es un IDE de codigo abierto, con extensibilidad de plugins, es el estandar de IDEs para las competencias, ya que ya incluye el compilador en Windows en la version codeblocks-mingw, a la vez incluye funciones tales como:
 - Destacado sintaxis
 - Finalización de Código
 - Navegador de clase
 - Indentado automatico
-- Intercambio rapido entre archivos .h y .c/.cpp
 - Debuger integrado
 
 ---
 
 # <mark>VSCode</mark>       ![w:70](./img/vscode.png)
 
-Es un IDE de codigo abierto, extendible e integrado con git y una terminal, es desarrollado por Microsoft bajo la licencia MIT con Electron, el cual es un framework para desarrollar aplicaciones de escritorio con HTML, CSS y JavaScript por esto mismo, hay una version en linea https://vscode.dev/. la mayor desventaja es que puede haber muchos problemas en la instalacion del compilador y debuger en Windows.
+Es un IDE de codigo abierto, extendible, integrado con git y una terminal, es desarrollado por Microsoft bajo la licencia MIT con Electron, el cual es un framework para desarrollar aplicaciones de escritorio con HTML, CSS y JavaScript por esto mismo, hay una version en linea https://vscode.dev/. la mayor desventaja es que puede haber muchos problemas en la instalacion del compilador y debuger en Windows.
 
-extensiones: C/C++, error lens, prettier, glasslt-VSC, vim.
+extensiones esenciales: C/C++, code runner, error lens.
 temas: nord, Catppuccin, GruvBox, Monokai, etc.
 
 ---
 
-<mark>Instalar el compilador en VScode de Windows:</mark>
+### Instalar el compilador en VScode de Windows ![](./img/win.png) 
 Seguiremos esta [guia oficial de VScode](https://code.visualstudio.com/docs/cpp/config-mingw).
-- Primero descargamos MSYS2 e instalamos dando varios Enters.
+- Primero descargamos MSYS2 e instalamos dando varios Enters (los errores suelen ser por la mala conexion a internet).
 - Ya instalado, abrimos la terminalo de MSYS y pegamos este comando para descargar las herramientas necesarias y le damos Enter a cualquier mensaje.
 
+```bash
+pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain
 ```
-pacman -S --needed base-devel mingw-w64-x86_64-toolchain
-```
-- Despues buscamos alguna de estas palabras clave: "variables, path, variables del sistema" en el buscador, abres la aplicacion con icono de una computadora con una palomita, alli abriremos las variables y editaremos el path agregando la direccion: "C:\msys64\mingw64\bin".
+- Despues buscamos alguna de estas palabras clave: "variables, path, variables del sistema" en el buscador, abres la aplicacion con icono de una computadora con una palomita, alli abriremos las variables y editaremos el path agregando la direccion: "C:\msys64\ucrt64\bin".
 
 ---
 
@@ -129,29 +128,61 @@ pacman -S --needed base-devel mingw-w64-x86_64-toolchain
 
 ---
 
-- Luego instalamos la extension del compilador: C/C++ en vscode 
+- Tenemos que tener la extension del compilador C/C++ en vscode 
 - Al final damos click a la configuración de la extensión y alli buscamos la opción que diga "compiler path", ahi nos manda a settings.json, el cual editamos de la siguiente manera: 
 
-```
+```json
 {
-    "C_Cpp.default.compilerPath": "C:/msys64/mingw64/bin/",
-    "C_Cpp.clang_format_path": "C:/msys64/mingw64/bin/",
+    "C_Cpp.default.compilerPath": "C:/msys64/ucrt64/bin",
+    "C_Cpp.clang_format_path": "C:/msys64/ucrt64/bin",
     "code-runner.executorMap": {
         "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt -g && $dir$fileNameWithoutExt"
     }
 }
 ```
-- Con esto ya podremos compilar y ejecutar el codigo dentro de VScode dandole click al simbolo de repdroducir en la parte superior derecha del editor.
+- Con esto ya podremos compilar y ejecutar el codigo dentro de VScode dandole click al simbolo de repdroducir en la parte superior derecha del editor o con la extension code runner con las teclas ctrl + alt + N.
+
+---
+
+### Instalar el compilador en VScode de MacOS ![](./img/mac.png)
+
+- Primero instalamos el gestor de paquetes [brew](https://brew.sh/) abriendo una terminal y ejecutando el comando, para despues dar varios enters:
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+- despues en instalamos el compilador gcc
+
+
+```bash
+brew analytics off
+brew install gcc
+sudo rm /usr/local/bin/g++
+sudo ln -s $(ls /usr/local/bin/g++-*) /usr/local/bin/g++
+
+```
+
+---
+
+### Integrar Codeforces con VScode ![](./img/codeforces.png)
+
+- Primero en VScode agregamos la extension: [Competitive Programming Helper](https://marketplace.visualstudio.com/items?itemName=DivyanshuAgrawal.competitive-programming-helper)
+
+- Para firefox: Agrega las extensiones [competitive companion](https://addons.mozilla.org/en-US/firefox/addon/competitive-companion/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search) y [CPH Submit](https://addons.mozilla.org/en-US/firefox/addon/cph-submit/)
+
+- Para navegadores basados en chromium (google chrome, Microsft Edge, Opera, Brave, etc.): Agrega las extensiones [competitive companion](https://chromewebstore.google.com/detail/competitive-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl) y [CPH Submit](https://github.com/ArielParra/cph-submit-chromium)
+
+Para usarlas, ten tu sesion de codeforces activa y tambien ten abierto VScode, cuando abras un problema en codeforces haz click en icono de un circulo verde con un +, cambiate a vscode donde veras unas opciones donde eligiras cpp, y listo podras pobrar y publicar tu codigo desde vscode. 
 
 
 ---
 
-# <mark>*VScodium</mark> ![w:75](./img/vscodium.png)
+
+# <mark>VScodium</mark> ![w:75](./img/vscodium.png)
 
 VSCodium es una distribución binaria hecha por la comunidad y licenciada de manera libre del editor VS Code, este surge ya que vscode aunque tenga un codigo fuente publico, los binarios que distribuyen tienen telemetria activada por defecto.
 la diferencia principal con vscode es la tienda [open-vsx](https://open-vsx.org/) en lugar de la de [microsoft](https://marketplace.visualstudio.com/VSCode)  y la remote window. 
 
-extensiones: las mismas que vscode exceptuando el compilador aqui recomiendo codeLLDB yclangd.
+Este no tiene las extensiones recomendadas, por lo que si no se esta en linux con la aplicion de vscodium-bin-marketplace no recomiendo su uso para programacion competitiva.
 
 ---
 
@@ -168,49 +199,55 @@ Git es una herramienta de codigo abierto sobre el control de version distribuido
 
 - Primero crearemos una cuenta de github https://github.com/signup
 - Despues creamos un repositorio (proyecto) en  https://github.com/new
-- Luego descargamos git con algun pacakge manager o desde la pagina oficial https://git-scm.com/
-- También comprobamos que esta instalado el clinte de [OpenSSH](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui) en Windows.
+- Luego descargamos git con algun pacakge manager o desde la pagina oficial https://git-scm.com/downloads
+- si no esta actualizado Windows a la ultima version comprobamos que esta instalado el clinte de [OpenSSH](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui).
 - En una terminal creamos nuestro usuario local de git:
 
-```
+```bash
 git config --global user.name "Usuario"
-git config --global user.email correo@ejemplo.com
+git config --global user.email "correo@ejemplo.com" 
 ```
 
 ---
 
+- y comprobamos nuestros datos con :
+```
+ git config --list
+ ```
+
 - En la misma terminal creamos una llave pública de ssh:
 
-```
-ssh-keygen -t ed25519 -C "al-ID-@edu.uaa.mx"
+```bash
+ssh-keygen -t ed25519 -C "correo@ejemplo.com"
 ```
 
-- Copiamos los datos del archivo generado en C:\Users\\"Usuario"\\.ssh\id_ed25519.pub ó /home/"usuario"/.ssh/id_ed25519.pub (puedes abrirlo con bloc de notas ) y lo conectamos con nuestra cuenta de github atravez de https://github.com/settings/ssh/new, dandole un nombre (el de tu computadora) y pegando la los datos copiados (llave).
+- Copiamos los datos del archivo generado en C:\Users\\"Usuario"\\.ssh\id_ed25519.pub ó /home/"usuario"/.ssh/id_ed25519.pub (en windows tiene icono de Microsoft Publisher y se puede abrir con bloc de notas) y lo conectamos con nuestra cuenta de github atravez de https://github.com/settings/ssh/new, dandole un nombre (el de tu computadora) y pegando la los datos copiados (llave).
 
 ---
 
 - Y por ultimo descargamos nuestro repositorio, en una terminal navega hacia tu carpeta de de destino, yo recomiendo la carpeta de Documentos (ojo en Windows la carpeta suele estar bajo C:\\Users\\"Usuario"\\One Drive\\Documentos)
 
-```
+```bash
 git clone git@github.com:"Usuario de GitHub"/"Proyecto".git
 ```
 
 Una vez ya tengamos conectado nuestra cuenta y proyecto, los tres comandos principales de git que usaremos (ya estan integrados en VScode) son:
 
-- git commit -m "mensaje del commit" // este  es un comentario de los cambios locales a publicar (pushear)
-- git push //pusheas los cambios junto con el commit
-- git pull //descargas los cambios actuales
-
+```bash
+git commit -m "mensaje del commit" # cambios locales a "pushear"
+git push #pusheas los cambios junto con el commit
+git pull #descargas los cambios actuales
+```
 ---
 
 # Extras
 
 ---
 
-<mark>Paginas de documentacion de c++:</mark> [microsoft](https://learn.microsoft.com/es-es/cpp/cpp/cpp-language-reference?view=msvc-170), [cplusplus](https://cplusplus.com/reference/), [w3school](https://www.w3schools.com/cpp/default.asp) ,[geeksforgeeks](https://www.geeksforgeeks.org/c-plus-plus/), [cpprefernece](https://en.cppreference.com/w/), [tabla ascii](https://theasciicode.com.ar/).
-<mark>Traductores de ingles:</mark> [libretranslate](https://libretranslate.com/?).
-<mark>Operadores de busqueda:</mark>  [Joshua Hardwick](https://ahrefs.com/blog/google-advanced-search-operators/), [fireship](https://yewtu.be/watch?v=cEBkvm0-rg0).
-<mark>Multiples buscadores:</mark> [searxng](https://searx.space/), [Ariel Parra searxng](https://searx.arielparra.tech).
+<mark>Paginas de documentacion de c++:</mark> [microsoft](https://learn.microsoft.com/es-es/cpp/cpp/cpp-language-reference?view=msvc-170), [cplusplus](https://cplusplus.com/reference/), [w3school](https://www.w3schools.com/cpp/default.asp) ,[geeksforgeeks](https://www.geeksforgeeks.org/c-plus-plus/), [cpprefernece](https://en.cppreference.com/w/), [tabla ascii](https://theasciicode.com.ar/), [cppbyexample](https://cppbyexample.com/).
+<mark>Traductores de Ingles:</mark> [libretranslate](https://libretranslate.com/?), [simplyTranslate](https://simplytranslate.org/).
+<mark>Operadores de busqueda:</mark>  [Joshua Hardwick](https://ahrefs.com/blog/google-advanced-search-operators/), [fireship](https://yewtu.be/watch?v=cEBkvm0-rg0), [Busqueda Avanzada por Google](https://support.google.com/websearch/answer/2466433?hl=es).
+<mark>Multiples buscadores(Metasearch):</mark> [searxng](https://searx.space/), [Ariel Parra searxng](https://searx.arielparra.tech), [BigSearch extension](https://github.com/garywill/BigSearch).
 <mark>Teclear velozmente:</mark> [monkey type](https://monkeytype.com/), [typeclub](https://www.typingclub.com/), [TypeRacer](https://play.typeracer.com/), [openvim](https://www.openvim.com/), [vimhero](https://www.vim-hero.com/).
 
 \*Para programar más rápido recomiendo usar una distribución de teclado americano (US), o el US-International para seguir usando acentos y caracteres especiales*
@@ -221,7 +258,7 @@ Una vez ya tengamos conectado nuestra cuenta y proyecto, los tres comandos princ
 
 <mark>Compilar y ejecutrar en una terminal de Linux:</mark>
 
-```
+```bash
 [usuario@computadora ~/]$ cd "Ubicacion/del/Proyecto"
 [usuario@computadora "Ubicacion"]$ ls 
 archivo1.cpp archivo2.cpp 677A.cpp
@@ -235,7 +272,7 @@ archivo1.cpp archivo2.cpp 677A.cpp
 
 <mark>Compilar y ejecutrar en una terminal de Windows:</mark>
 
-```
+```pwsh
 C:\Users\"Usuario"> cd "Ubicacion\del\Proyecto"
 C:\Users\"Usuario"\"Ubicaion"> dir 
 15/08/2023  09:29 a. m.               639 archivo1.cpp
