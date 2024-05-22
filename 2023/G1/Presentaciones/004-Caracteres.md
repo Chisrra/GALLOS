@@ -37,7 +37,7 @@ Es una unidad de información que corresponenden a un símbolo,digito,puntuacion
 
 En C++ los caracteres no son más que un conjunto de numeros para representar un caracter a travez de algun tipo de codificación, por defecto C++ utiliza la decodificación de ASCII (American Standard Code for Information), aunque también soporta UNICODE/UTF-8 (En Windows tienes que declarar el uso explicitamente con "SetConsoleOutputCP(CP_UTF8)").
 
-Originalmente ASCII fue diseñado pensando en 7 bytes dando un total de 128 caracteres (del 0 al 127), pero en la computación moderna se asume que un caracter es 1 byte (8 bits), por lo que surge el Extended ASCII.
+Originalmente ASCII fue diseñado pensando en 8 bits con signo dando un total de 128 caracteres (del 0 al 127);
 
 
 ---

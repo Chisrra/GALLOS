@@ -1,9 +1,11 @@
 *.exe
+*.out
 *.o
 *.cbp
 *.depend
 *.layout
 *.pptx
+.cph/
 bin/
 obj/
 *.vscode

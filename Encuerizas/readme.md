@@ -4,8 +4,5 @@ Aquí encontrarás una recopilación completa de problemas y soluciones de las c
 ## Estructura de la Carpeta
 La carpeta se organiza en grupos y competencias, para que puedas encontrar lo que necesitas rápidamente.
 
-## Grupos
-Las competencias estan separadas en los grupos del club G1 y G2.
-
 ## Competencias
 Dentro de cada grupo, encontrarás una lista de las competencias internas. Cada competencia contiene una serie de problemas desafiantes que nuestros miembros enfrentaron durante la competencia. Junto a cada problema, también proporcionamos la solucion en código. 
