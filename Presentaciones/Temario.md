@@ -25,26 +25,27 @@
     3.2 Identify Problem Types
         3.2.1 ,16 problem types
         3.2.2 ,4 paradigms
-    3.3 Sorting algoritmos
-    3.4 busquedas
+    3.3
+    3.4 Sorting algoritmos
+    3.5 busquedas
         3.4.1 busqueda linear 
         3.4.2 busqueda binaria y busqueda ternaria 
-    3.4 Paradigma Greedy 
+    3.6 Paradigma Greedy 
         3.4.1 Dos punteros
-    3.5 binarios
-    3.6 Habilidades blandas y teamwork
-    3.9  estructuras de datos lineales restantes
+    3.7 manejo de binarios
+    3.8 Habilidades blandas y teamwork
+    3.10  estructuras de datos lineales restantes
         3.8.2 pilas
         3.8.1 listas 
         3.8.3 Colas,dequeue,priority queue
-    3.10 estructuras de datos no lineales
+    3.11 estructuras de datos no lineales
         3.9.1 sets , unordered - multisets
         3.9.2 maps , unordered - multimaps
-    3.11 Logarithms, powers
-    3.12 algebra modular
+    3.12 Logarithms, powers
+    3.13 algebra modular
         3.12.1 Modular multiplicative inverse
         3.12.2 Exponenciación modula
-    3.13 factorizaciones
+    3.14 factorizaciones
 4 Temas Avanzados
     4.2 Recursion y Programacion dinamica
     4.3	algebra matricial

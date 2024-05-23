@@ -20,6 +20,8 @@ Si eres nuevo en el emocionante mundo de la programación competitiva, ¡no te p
 
 Agradecemos tener a bordo a programadores apasionados como tú. Si deseas contribuir con tus propios desafíos, soluciones o ideas, ¡no dudes en hacerlo! Juntos, podemos hacer de este repositorio un recurso valioso para todos los amantes de la programación competitiva.
 
+Nuestras presentaciones han sido realizadas con [marp](https://marp.app/)! una extension de VScode para realizar presentaciones usando markdown!, no dudes en modificar, agregar, corregir nuestras presentaciones.
+
 Si tienes preguntas, sugerencias o simplemente deseas saludar, no dudes en ponerte en contacto con nosotros. Estamos aquí para apoyarte en tu viaje hacia la excelencia en la programación.
 
  🎉👨‍💻👩‍💻

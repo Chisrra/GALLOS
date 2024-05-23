@@ -22,6 +22,8 @@
         1.5.1 UNAM PU++
         1.5.2 ICPC Mexico ITESO
     1.6 futuro laboral
+        FAANG
+        Facebook, Amazon, Netflix, Google
 
 2. Bases de C++
     2.1 Que es C++ y porque no python,java, rust?
@@ -49,7 +51,6 @@
         2.6.5 Habilidades duras,(escritura rapida)
     2.7 Junior Training sheet
     https://docs.google.com/spreadsheets/d/1iJZWP2nS_OB3kCTjq8L6TrJJ4o-5lhxDOyTaocSYc-k/edit#gid=84654839
-        2.7.1 tiempos esperados de lectura-escritura-solucion
     2.8 STL containers (Estructuras de Datos Lineales)
         2.8.1 Vectores
             2.8.1.1 arrays circulares
@@ -64,16 +65,25 @@
         2.8.5 Grafico de que estructura elegir 
     2.9 Apuntadores-Iteradores + STL que devuelven iteradores
     2.10 Errores comunes y debugeo 
-        pendejario? 
+        https://www.youtube.com/watch?v=GsQM0nJhXws
+        pendejario? (debug a base de preguntas) 
+        https://github.com/GustavoMeza/icpc-notebook/blob/master/Pendejario.txt
+        uso de #define dbg(...) 
         visual debug online
         vscode
-        #define dbg(...) cerr << "LINE(" << __LINE__ << ") -> [" << #__VA_ARGS__ << "]: [", DBG(__VA_ARGS__) 
 3. Algoritmos
     3.1 Complejidad de tiempo y espacio de un algoritmo, big O, notacion asintotica, solo mencionar general de lo demas
     3.2 Identify Problem Types
         3.2.1 ,16 problem types
         3.2.2 ,4 paradigms
-        3.2.3 table 
+        3.2.3 table de paradigmas y tipos
+    3.2 solucion de problemas 
+        # Kidlin's law
+        1 intuicion https://www.youtube.com/watch?v=1f6N2UrCK6o
+        2 subcociente y pedos psicologicos https://www.youtube.com/watch?v=zHECSAdJjTQ
+        3.2.1 implementacion https://sites.google.com/site/mostafasibrahim/programming-competitions/thinking-techniques
+        3.2.2 analisis de problemas https://sites.google.com/site/mostafasibrahim/programming-competitions/thinking-techniques
+        3.2.3 estrategias de visualizacion https://sites.google.com/site/mostafasibrahim/programming-competitions/thinking-techniques
         https://docs.google.com/spreadsheets/d/1-n9Fnvhsnvsqh-IerE_yyIshw5RUNer_7EjwF_GW-TA/edit#gid=745110425
     3.3 Sorting algoritmos
         3.4 divide and conquer  quick sort 
@@ -125,7 +135,6 @@
     4.11 Geometría computacional
 
 
-Kidlin's law
 
 Algorithmic paradigms
     Complete Search
