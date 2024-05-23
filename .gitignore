@@ -8,4 +8,6 @@
 .cph/
 bin/
 obj/
-*.vscode
+.vscode/*
+!.vscode/settings.json
+!.vscode/*.css

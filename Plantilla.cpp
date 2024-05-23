@@ -15,14 +15,16 @@ using namespace std;
 #define S second
 
 int main(){
-ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+ios_base::sync_with_stdio(0);cin.tie(0);
 //freopen("in.txt", "r", stdin);
     int tc=2;
     //cin>>tc;
     int n;
     while(tc--){
         cin>>n;
-        
+        for(int i=0;i<n;++i){
+            //code
+        }
     }
 return 0;
 }
